@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Estates - Premium Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cookie Consent Popup -->
+    <div id="cookie-modal" class="modal">
+        <div class="modal-content">
+            <h2>Cookie Preferences</h2>
+            <p>We use cookies to enhance your experience. Please choose your preferences.</p>
+            <div class="modal-buttons">
+                <button id="accept-all" class="btn-primary">Accept All Cookies</button>
+                <button id="manage-cookies" class="btn-secondary">Manually Manage Cookies</button>
+                <button id="reject-all" class="btn-secondary">Reject All Cookies</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <a href="#hero" class="logo-link">
+                <div class="logo">🏠</div> <!-- Placeholder logo (replace with <img src="logo.png" alt="Logo"> if you have an image) -->
+                <span class="company-name">Luxury Estates</span>
+            </a>
+            <nav>
+                <a href="#hero">Home</a>
+                <a href="#who-we-are">Who We Are</a>
+                <a href="#what-we-do">What We Do</a>
+                <a href="#how-we-started">How We Started</a>
+                <a href="#properties">Properties</a>
+                <a href="#connect">Connect</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Discover Your Dream Home</h1>
+            <p>Premium real estate projects tailored for luxury living. Explore our curated listings and start your journey today.</p>
+            <a href="#properties" class="btn-primary">Explore Properties</a>
+        </div>
+        <div class="slideshow">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+        </div>
+        <!-- Slideshow Indicators -->
+        <div class="slideshow-indicators">
+            <button class="indicator active" data-slide="0"></button>
+            <button class="indicator" data-slide="1"></button>
+            <button class="indicator" data-slide="2"></button>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section id="who-we-are" class="section who-we-are">
+        <div class="container">
+            <div class="split-layout">
+                <div class="text-content">
+                    <h2>Who We Are</h2>
+                    <p>At Luxury Estates, we are a team of passionate real estate professionals dedicated to connecting you with exceptional properties. With years of experience in the industry, we prioritize trust, integrity, and personalized service to make your home-buying journey seamless and enjoyable.</p>
+                </div>
+                <div class="image-content">
+                    <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Our Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="section what-we-do">
+        <div class="container">
+            <h2>What We Do</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Property Listings</h3>
+                    <p>We curate a selection of premium real estate projects, from urban apartments to countryside villas, ensuring each listing meets our high standards of quality and luxury.</p>
+                </div>
+                <div class="card">
+                    <h3>Lead Generation</h3>
+                    <p>Through our contact form, we capture leads to connect potential buyers with the right properties, fostering meaningful relationships and successful transactions.</p>
+                </div>
+                <div class="card">
+                    <h3>Expert Guidance</h3>
+                    <p>Our team provides expert advice on market trends, financing options, and property inspections to help you make informed decisions.</p>
+                </div>
+                <div class="card">
+                    <h3>Customized Searches</h3>
+                    <p>We tailor property searches based on your preferences, location, and budget, saving you time and effort in finding your ideal home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Started Section -->
+    <section id="how-we-started" class="section how-we-started">
+        <div class="container">
+            <h2>How We Started</h2>
+            <div class="story-content">
+                <p>Founded in 2010, Luxury Estates began as a small family business with a vision to redefine real estate by focusing on trust and excellence. Our founder, inspired by a passion for architecture and community, started with a single project and grew into a trusted name in premium properties.</p>
+                <div class="mission-vision">
+                    <div>
+                        <h3>Our Mission</h3>
+                        <p>To provide unparalleled real estate services that empower clients to find homes that inspire and endure.</p>
+                    </div>
+                    <div>
+                        <h3>Our Vision</h3>
+                        <p>To be the leading platform for luxury real estate, blending innovation with timeless values.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Listings Section -->
+    <section id="properties" class="section properties">
+        <div class="container">
+            <h2>Property Listings</h2>
+            <div class="property-grid">
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Modern Villa">
+                    <h3>Modern Villa</h3>
+                    <p>Location: Malibu, CA</p>
+                    <p>Price: $2,500,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Urban Apartment">
+                    <h3>Urban Apartment</h3>
+                    <p>Location: New York, NY</p>
+                    <p>Price: $1,200,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Countryside Estate">
+                    <h3>Countryside Estate</h3>
+                    <p>Location: Napa Valley, CA</p>
+                    <p>Price: $3,800,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80" alt="Skyline Penthouse">
+                    <h3>Skyline Penthouse</h3>
+                    <p>Location: Chicago, IL</p>
+                    <p>Price: $4,500,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Beachfront Condo">
+                    <h3>Beachfront Condo</h3>
+                    <p>Location: Miami, FL</p>
+                    <p>Price: $1,800,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Mountain Retreat">
+                    <h3>Mountain Retreat</h3>
+                    <p>Location: Aspen, CO</p>
+                    <p>Price: $2,200,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect With Us Section -->
+    <section id="connect" class="section connect">
+        <div class="container">
+            <h2>Connect With Us</h2>
+            <form id="contact-form" class="form-card">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location of Search *</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="property">Property of Interest</label>
+                    <input type="text" id="property" name="property">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Submit</button>
+                <div id="success-message" class="success-message" style="display: none;">Thank you! We'll get back to you soon.</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Luxury Estates. All rights reserved.</p>
+            <p>We respect your privacy. Your data is used solely for lead generation and will not be shared without consent. <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
