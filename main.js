@@ -37,7 +37,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Hero Slideshow
-// Automatic slideshow with fade transitions
+// Automatic slideshow with fade transitions and manual indicators
 const slides = document.querySelectorAll('.slide');
 const indicators = document.querySelectorAll('.indicator');
 let currentSlide = 0;
@@ -78,20 +78,155 @@ indicators.forEach((indicator, index) => {
 // Start slideshow, changing every 5 seconds
 setInterval(nextSlide, 5000);
 
-// Contact Form Handling
-// Prevent default submit, log data, show success message
+// Property Listings: Fetch from Google Sheets, Display, Pagination, Search
+let allProperties = [];
+let currentPage = 1;
+const propertiesPerPage = 6;
+
+async function fetchProperties() {
+    // Replace with your Google Apps Script web app URL for fetching listings
+    // Example: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?action=fetchListings
+    // The script should return JSON array of properties with fields like: id, name, location, price, images (array), details, builder, area, parking, brochureUrl
+    const url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?action=fetchListings';
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        allProperties = data; // Assume data is an array of property objects
+        displayProperties();
+    } catch (error) {
+        console.error('Error fetching properties:', error);
+        // Fallback: Use dummy data if fetch fails
+        allProperties = [
+    { id: 1, name: 'Modern Villa', location: 'Malibu, CA', price: '2,500,000', areaSize: '5000', metric: 'sq ft', images: ['https://via.placeholder.com/300'], details: 'Luxury villa with ocean views.', builder: 'ABC Builders', parking: 'Yes, 2 spots', brochureUrl: '#' },
+    // Add more with areaSize and metric
+        ];
+        displayProperties();
+    }
+}
+
+function displayProperties(properties = allProperties, page = 1) {
+    const grid = document.getElementById('property-grid');
+    grid.innerHTML = '';
+    const start = (page - 1) * propertiesPerPage;
+    const end = start + propertiesPerPage;
+    const pageProperties = properties.slice(start, end);
+
+    pageProperties.forEach(prop => {
+        const card = document.createElement('div');
+        card.className = 'property-card';
+        card.innerHTML = `
+            <img src="${prop.images[0]}" alt="${prop.name}">
+            <h3>${prop.name}</h3>
+            <p>Location: ${prop.location}</p>
+            <p>Price: $${prop.price}</p>
+            <p>Area: ${prop.areaSize} ${prop.metric}</p>  <!-- Added area size -->
+            <button class="btn-secondary view-details" data-id="${prop.id}">View Info</button>
+        `;
+        grid.appendChild(card);
+    });
+
+    updatePagination(properties.length, page);
+}
+
+function updatePagination(total, page) {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+    const totalPages = Math.ceil(total / propertiesPerPage);
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.classList.toggle('active', i === page);
+        btn.addEventListener('click', () => {
+            currentPage = i;
+            displayProperties(allProperties, currentPage);
+        });
+        pagination.appendChild(btn);
+    }
+}
+
+// Search Functionality
+document.getElementById('search-btn').addEventListener('click', () => {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const message = document.getElementById('search-message');
+    let filtered = allProperties.filter(p => p.name.toLowerCase().includes(query));
+    if (filtered.length > 0) {
+        // Show matching + similar in location
+        const location = filtered[0].location;
+        const similar = allProperties.filter(p => p.location === location && !filtered.includes(p));
+        filtered = [...filtered, ...similar.slice(0, 5)]; // Up to 6 total
+        message.style.display = 'none';
+    } else {
+        // Show message + similar properties
+        filtered = allProperties.slice(0, 6);
+        message.textContent = "Can't find the property you're looking for, but here are similar properties.";
+        message.style.display = 'block';
+    }
+    displayProperties(filtered, 1); // Reset to page 1 for search results
+});
+
+// Property Details Modal
+const propertyModal = document.getElementById('property-modal');
+const closeModal = document.getElementById('close-modal');
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('view-details')) {
+        const id = e.target.dataset.id;
+        const prop = allProperties.find(p => p.id == id);
+        if (prop) {
+            document.getElementById('modal-title').textContent = prop.name;
+            document.getElementById('modal-images').innerHTML = prop.images.map(img => `<img src="${img}" alt="${prop.name}">`).join('');
+            document.getElementById('modal-details').textContent = `Details: ${prop.details}`;
+            document.getElementById('modal-builder').textContent = `Builder: ${prop.builder}`;
+            document.getElementById('modal-location').textContent = `Location: ${prop.location}`;
+            document.getElementById('modal-area').textContent = `Area: ${prop.area}`;
+            document.getElementById('modal-parking').textContent = `Parking: ${prop.parking}`;
+            document.getElementById('modal-brochure').href = prop.brochureUrl;
+            propertyModal.style.display = 'flex';
+        }
+    }
+});
+
+closeModal.addEventListener('click', () => {
+    propertyModal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === propertyModal) {
+        propertyModal.style.display = 'none';
+    }
+});
+
+// Contact Form Handling: Submit to Google Sheets
 const form = document.getElementById('contact-form');
 const successMessage = document.getElementById('success-message');
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent form from submitting
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData); // Convert to object
-    console.log('Form Data:', data); // Log to console for now
-    successMessage.style.display = 'block'; // Show success message
-    form.reset(); // Reset form
-    // Hide success message after 5 seconds
-    setTimeout(() => {
-        successMessage.style.display = 'none';
-    }, 5000);
+    const data = Object.fromEntries(formData);
+    
+    // Replace with your Google Apps Script web app URL for storing enquiries
+    // Example: https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?action=storeEnquiry
+    const url = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec?action=storeEnquiry';
+    
+    try {
+        await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        successMessage.style.display = 'block';
+        form.reset();
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 5000);
+    } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Error submitting form. Please try again.');
+    }
+});
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    fetchProperties();
 });

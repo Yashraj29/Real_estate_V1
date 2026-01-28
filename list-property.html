@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Your Property - Luxury Estates</title>
+    <link rel="stylesheet" href="style.css"> <!-- Reuse main styles -->
+    <link rel="stylesheet" href="list-property.css"> <!-- Additional styles -->
+</head>
+<body>
+    <!-- Header (Simplified for this page) -->
+    <header class="header">
+        <div class="header-content">
+            <a href="Web.html" class="logo-link">
+                <div class="logo">🏠</div>
+                <span class="company-name">Luxury Estates</span>
+            </a>
+            <nav>
+                <a href="Web.html">Back to Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="section list-property">
+        <div class="container">
+            <h2>List Your Property</h2>
+            <form id="property-form" class="form-card" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="property-type">Property Type *</label>
+                    <select id="property-type" name="propertyType" required>
+                        <option value="">Select Type</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="duplex">Duplex</option>
+                        <option value="individual-home">Individual Home</option>
+                        <option value="land">Land</option>
+                        <option value="commercial-unit">Commercial Unit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="property-name">Name of the Property *</label>
+                    <input type="text" id="property-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="builder-name">Name of the Builder *</label>
+                    <input type="text" id="builder-name" name="builder" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location of the Property *</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price *</label>
+                    <input type="number" id="price" name="price" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="metric">Area Metric *</label>
+                    <select id="metric" name="metric" required>
+                        <option value="sqft">Square Feet</option>
+                        <option value="sqm">Square Meters</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="area-size">Area Size *</label>
+                    <input type="number" id="area-size" name="areaSize" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="details">Details About the Property *</label>
+                    <textarea id="details" name="details" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="brochure">Property Brochure (PDF) *</label>
+                    <input type="file" id="brochure" name="brochure" accept=".pdf" required>
+                </div>
+                <!-- Conditional Fields -->
+                <div id="carpet-group" class="form-group" style="display: none;">
+                    <label for="carpet-area">Carpet Area *</label>
+                    <input type="number" id="carpet-area" name="carpetArea" min="1">
+                </div>
+                <div id="balcony-group" class="form-group" style="display: none;">
+                    <label for="balcony-area">Balcony Carpet Area</label>
+                    <input type="number" id="balcony-area" name="balconyArea" min="0">
+                </div>
+                <div id="parking-group" class="form-group" style="display: none;">
+                    <label for="parking">Available Parking *</label>
+                    <select id="parking" name="parking" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div id="parking-details-group" class="form-group" style="display: none;">
+                    <label for="parking-details">Parking Details (Where and Size)</label>
+                    <input type="text" id="parking-details" name="parkingDetails">
+                </div>
+                <div class="form-group">
+                    <label for="images">Property Images (5-10 images, each <1MB) *</label>
+                    <input type="file" id="images" name="images" accept="image/*" multiple required>
+                    <small>Upload 5-10 images. Each must be under 1MB.</small>
+                </div>
+                <button type="submit" class="btn-primary">Submit Listing</button>
+                <div id="success-message" class="success-message" style="display: none;">Thank you! Your property has been listed.</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Luxury Estates. All rights reserved.</p>
+            <p>We respect your privacy. Your data is used solely for lead generation and will not be shared without consent. <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="list-property.js"></script>
+</body>
+</html>

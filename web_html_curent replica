@@ -29,10 +29,10 @@
             </a>
             <nav>
                 <a href="#hero">Home</a>
-                <a href="#properties">Listings</a>
                 <a href="#who-we-are">Who We Are</a>
                 <a href="#what-we-do">What We Do</a>
                 <a href="#how-we-started">How We Started</a>
+                <a href="#properties">Properties</a>
                 <a href="#connect">Connect</a>
             </nav>
         </div>
@@ -56,30 +56,6 @@
             <button class="indicator active" data-slide="0"></button>
             <button class="indicator" data-slide="1"></button>
             <button class="indicator" data-slide="2"></button>
-        </div>
-    </section>
-
-    <!-- Property Listings Section (Moved here) -->
-    <section id="properties" class="section properties">
-        <div class="container">
-            <h2>Property Listings</h2>
-            <!-- Search Bar -->
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search by property name...">
-                <button id="search-btn" class="btn-primary">Search</button>
-            </div>
-            <div id="search-message" class="search-message" style="display: none;"></div>
-            <div class="property-grid" id="property-grid">
-                <!-- Properties will be loaded here via JS -->
-            </div>
-            <!-- Pagination -->
-            <div class="pagination" id="pagination">
-                <!-- Buttons will be added via JS -->
-            </div>
-            <!-- List Your Properties Link -->
-            <div class="list-your-property">
-                <a href="list-property.html" class="btn-secondary">List Your Properties</a>
-            </div>
         </div>
     </section>
 
@@ -143,6 +119,57 @@
         </div>
     </section>
 
+    <!-- Property Listings Section -->
+    <section id="properties" class="section properties">
+        <div class="container">
+            <h2>Property Listings</h2>
+            <div class="property-grid">
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Modern Villa">
+                    <h3>Modern Villa</h3>
+                    <p>Location: Malibu, CA</p>
+                    <p>Price: $2,500,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Urban Apartment">
+                    <h3>Urban Apartment</h3>
+                    <p>Location: New York, NY</p>
+                    <p>Price: $1,200,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Countryside Estate">
+                    <h3>Countryside Estate</h3>
+                    <p>Location: Napa Valley, CA</p>
+                    <p>Price: $3,800,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80" alt="Skyline Penthouse">
+                    <h3>Skyline Penthouse</h3>
+                    <p>Location: Chicago, IL</p>
+                    <p>Price: $4,500,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Beachfront Condo">
+                    <h3>Beachfront Condo</h3>
+                    <p>Location: Miami, FL</p>
+                    <p>Price: $1,800,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+                <div class="property-card">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Mountain Retreat">
+                    <h3>Mountain Retreat</h3>
+                    <p>Location: Aspen, CO</p>
+                    <p>Price: $2,200,000</p>
+                    <button class="btn-secondary">View Info</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Connect With Us Section -->
     <section id="connect" class="section connect">
         <div class="container">
@@ -177,21 +204,6 @@
             </form>
         </div>
     </section>
-
-    <!-- Property Details Popup -->
-    <div id="property-modal" class="modal">
-        <div class="modal-content property-details">
-            <span id="close-modal" class="close">&times;</span>
-            <h2 id="modal-title"></h2>
-            <div id="modal-images"></div>
-            <p id="modal-details"></p>
-            <p id="modal-builder"></p>
-            <p id="modal-location"></p>
-            <p id="modal-area"></p>
-            <p id="modal-parking"></p>
-            <a id="modal-brochure" href="#" target="_blank">Download Brochure</a>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer class="footer">

@@ -1,0 +1,43 @@
+/* Additional styles for list-property.html, building on style.css */
+
+/* Form Enhancements */
+.list-property .form-card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.list-property .form-group {
+    margin-bottom: 20px;
+}
+
+.list-property label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.list-property select,
+.list-property input,
+.list-property textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.list-property textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.list-property small {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .list-property .form-card {
+        padding: 20px;
+    }
+}
